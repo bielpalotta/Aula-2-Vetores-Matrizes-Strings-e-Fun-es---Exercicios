@@ -1,0 +1,29 @@
+# include <stdio.h>
+ 
+int main(){
+    int matriz[5][5];
+    int i, j;
+    int maior, linhaMaior = 0, colunaMaior = 0;
+
+    printf ("Digite os elementos da matriz 5x5:\n");
+    for (i = 0; i < 5; i++){
+        for (j = 0; j < 5; j++){
+            printf ("Elemento [%d][%d]: ", i, j);
+            scanf ("%d", &matriz[i][j]);
+
+            if (i == = && j == 0){
+                maior = matriz[i][j];
+            }   else if  (matriz[i][j] > maior){
+                maior = matriz[i][j];
+                linhaMaior = i;
+                colunaMaior = j;
+            }
+        }
+    }
+
+    printf ("\nO maior elemento e: %d\n", maior);
+    printf ("Linha %d\n", linhaMaior);
+    printf ("Coluna: %d\n", colunaMaior);
+
+    return 0;
+}
