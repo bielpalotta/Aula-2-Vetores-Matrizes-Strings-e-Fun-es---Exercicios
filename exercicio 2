@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main(){
+    int vetor[20];
+    int i;
+    int maior, menor;
+    int soma = 0;
+    int pares = 0, impares = 0;
+    float media;
+
+    printf ("Digite 20 numeros inteiros:\n");
+    for (i = 0; i < 20; i+=){
+        printf ("Elemento %d:", i + 1);
+        scanf ("%d", &vetor[i]);
+
+        if (i == 0){
+            maior = vetor[i];
+            menor = vetor[i];
+        }   else {
+            if (vetor[i] > maior) maior = vetor[i];
+            if (vetor[i] < menor) menor = vetor[i];
+        }
+
+        soma += veotr[i];
+
+        if (vetor[i] % 2== 0){
+            pares++;
+        }   else {
+            impares ++;
+        }
+    }
+    media = (float) soma / 20;
+    printf ("\n--- Resultados ---\n");
+    printf ("Maior valor: %d\n", maior);
+    printf ("Menor valor : %d\n", menor);
+    printf ("Media dos elementos: %.2f\n", media);
+    printf ("Quantidade de numeros pares: %d\n", pares);
+    printf ("Quantidade de numeros imapres: %d\n", impares);
+
+    return 0;
+}
