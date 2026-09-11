@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+#define TAM 5
+
+void lerNotas (float notas[], int tamanho){
+    printf ("Digite as notas dos %d alunos: \n", tamanho);
+    for (int i = 0; i < tamanho; i++){
+        printf ("Nota do aluno %d", i + 1);
+        scanf ("%d", notas[i];)
+    }
+}
+
+float calcularMedia(float notas[], int tamanho){
+    float soma = 0;
+    for (int i = 0; i < tamanho; i++){
+        soma += notas[i];
+    }
+    return soma / tamanho;
+}
+
+float encontrarMaiorNota(float notas[], int tamanho){
+    float maior = notas[0];
+    for (int i = 1; i < tamanho; i++){
+    if (notas[i] > maior){
+        maior = notas[i];
+    }
+    }
+    return maior;
+}
+
+float encontrarMenorNota(float notas[], int tamanho){
+    float menor = notas[0];
+    for (int i = 1; i < tamanho; i++){
+        if (notas[i] < menor){
+            menor = notas[i];
+        }
+    }
+    return menor;
+}
+
+void imprimirRelatorio(float notas[], int tamanho){
+    float med = calcularMedia(notas, tamanho);
+    float maior = encontrarMaiorNota(notas, tamanho);
+    float menor = encontarMenorNota(notas, tamanho);
+
+    printf ("\n---Relatorio da turma ---\n");
+    printf ("Media da turma: %.2f", med);
+    printf ("Maior nota: %.2f\n", maior);
+    printf ("Menor nota: %.2f\n", menor);
+}
+
+int main(){
+    float notas[TAM];
+
+    lerNotas(notas, TAM);
+    imprimirRelatorio(notas, TAM);
+
+    return 0;
+}
