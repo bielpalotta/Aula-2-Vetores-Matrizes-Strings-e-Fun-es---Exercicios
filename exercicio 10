@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+void inicializarTabuleiro(char tab[3][3]){
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            tab[i][j] = ' ';
+        }
+    }
+}
+
+void exibirTabuleiro(char tab[3][3]){
+    printf ("\n 0 1 2\n");
+    for (int i = 0; i < 3; i++){
+        printf ("%d", i);
+        for (int j = 0; j < 3; j++){
+            printf (" %c", tab[i][j]);
+            if (j < 2) printf  (" ---|---|---\n");
+        }
+        printf ("\n");
+    }
+    int verificarVitoria(char tab[3][3]){
+        for (int i = 0; i < 3; i ++){
+        if (tab[i][0] == tab[i][1] && tab[i][1] == tab[i][2] && tab[i][0 != ' ']) return 1;
+        if (tab[0][i] == tab[1][i] && tab[1][i] == tab[2][i] && tab[0][i] != ' ') return 1;
+}
+
+if(tab[0][0] == tab[1][1] && tab[1][1] == tab[2][2] && tab[0][0] != ' ') return 1;
+if (tab[0][2] == tab[1][1] && tab[1][1] == tab[2][0] && tab[0][2] != ' ') return 1;
+
+return 0;
+    
+}
+
+int verificarEmpate(char tab[3][3]){
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            fi (tab[i][j] == ' ') return 0;
+        }
+    }
+    return 1;
+}
+
+int main(){
+    char tabuleiro[3][3];
+    int linha, coluna;
+    int jogador = 1; 
+    int fim = 0;
+
+    inicializarTabuleiro(tabuleiro);
+
+    printf ("JOGO DA VELHA\n");
+
+    while (!fim){
+        exibirTabuleiro(tabuleiro);
+        char simbolo = (jogador == 1) ? 'X' : 'O';
+
+        printf ("Jogador %d (%c)\n", jogador, simbolo);
+        printf ("Digite a linha (0-2): ");
+        scanf ("%d", &linha);
+        printf ("Digite a coluna (0-2):");
+        scanf ("%d", &coluna);
+
+        if (linha < 0 || linha > 2 || coluna < 0 || coluna > 2 || tabuleiro[linha][coluna] != ' '){
+            printf ("\n[Erro] Jogada invalida ou posicao ocupada ! Tente novamente. \n");
+        continue;
+        }
+        tabuleiro[linha][coluna] = simbolo;
+
+        if(verificarVitoria(tabuleiro)){
+            exibirTabuleiro(tabuleiro);
+            printf ("Parabnes! O jogador %d (%c) venceu\n", jogador, simbolo);
+            fim = 1;
+
+        }   else {
+            jogador = (jogador == 1) ? 2 : 1;
+        }
+    }
+    return 0;
+
+    
+}
