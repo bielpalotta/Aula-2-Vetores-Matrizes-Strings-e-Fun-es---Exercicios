@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main(){
+    char nome[100];
+    int i, len;
+    int vogais = 0, consoantes = 0, espacos = 0;
+
+    printf ("Digite o nome completo: ");
+    fgets(nome, sizeoff(nome), stdin);
+
+    nome[strcspn(nome, "\n")] = '\0';
+
+    len = strlen(nome);
+
+    for (i = 0; i < len; i++){
+        char c = tolower(nome[i]);
+        if (c == ' ' || c == '\t') {
+            espacos++;
+        }   else if (c >= 'a' && c <= 'z'){
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                vogais++;   
+            }   else {
+                consoantes++;
+            }
+        }
+    }
+    printf ("\nQuantidade de caracteres (strlen): %d\n", len);
+    printf ("Quantidade de vogais: %d\n", vogais); 
+    printf ("Quantidade de consoantes: %d\n", consoantes);
+    printf ("Quantidade de espacos em branco: %d\n", espacos);
+
+    return 0;
+}
