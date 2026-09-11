@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main(){
+    int vetor[15];
+    int i, busca, encontrado = 0;
+
+    printf ("Digite 15 numeros inteiros: \n");
+    for (i = 0; i < 15; i++){
+        printf ("Elemento %d: ", i + 1);
+        scanf ("%d", &vetor[i]);
+    }
+
+    printf ("\NDigite um numero para pesquisa: ");
+    scanf ("%d", &busca);
+
+    for(i = 0; i < 15; i++){
+        if (vetor[i] == busca){
+            printf ("Numero encontrado na posicao (indice): %d\n", i) encontrado = 1;
+
+        }
+        
+    }
+
+    if (!encontrado){
+            printf("O numero %d não foi encontrado no vetor.\n", busca);
+        }
+        
+    return 0;
+}
